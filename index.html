@@ -103,9 +103,11 @@
             <ul v-for="singleTask, index in taskList" id="list" class="mx-3 divide-slate-800">
                 <li class="p-2 flex justify-between items-center border-b border-slate-200 dark:border-white">
 
-                    <i v-if="singleTask.done"
-                        class="pr-4 cursor-pointer text-blue-600 animate-bounce fa-solid fa-circle-check"></i>
-                    <i v-else class="pr-4 text-slate-400 fa-solid fa-circle"></i>
+                    <div @click=" singleTask.done=!singleTask.done">
+                        <i v-if="singleTask.done"
+                            class="pr-4 cursor-pointer text-blue-600 fa-solid fa-circle-check"></i>
+                        <i v-else class="pr-4 text-slate-400 fa-solid fa-circle"></i>
+                    </div>
 
                     <span :class="{ 'active': singleTask.done }" @click=" singleTask.done=!singleTask.done"
                         class=" text-[14px] cursor-pointer">{{ singleTask.text
